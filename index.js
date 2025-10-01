@@ -2,8 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
-import path from "path";
-import fs from "fs";
+
 
 // import prisma from "./src";
 
@@ -18,15 +17,10 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-// create uploads folder if not exists
-const uploadsDir = path.join(process.cwd(), "uploads");
-if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(morgan("dev"));
-app.use("/uploads", express.static(uploadsDir)); // serve uploaded files
 
 // Routes
 app.use("/api/auth", authRoutes);
