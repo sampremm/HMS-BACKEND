@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "seed": "node prisma/seed.js"
+    "seed": "node prisma/seed.js",
+      "vercel-build": "echo Build done"
   
   },
   "description": "Hospital Management System Backend",
